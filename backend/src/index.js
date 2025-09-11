@@ -75,7 +75,7 @@ import { typeDefs, resolvers } from "./graphql/schema.js";
 import { authMiddleware } from './middleware/auth.js';
 import accountRoutes from "./routes/accountRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
- 
+import loanRoutes from "./routes/loanRoutes.js";
  
  
 dotenv.config();
@@ -93,6 +93,7 @@ const startServer = async () => {
   app.use(cors());
   app.use(express.json());
   app.use("/api/accounts", accountRoutes);
+  app.use("/api/loans",loanRoutes);
   app.use("/api/auth", authRoutes);
  
   app.use(
